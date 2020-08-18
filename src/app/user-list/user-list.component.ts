@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
 
   userList: User[];
+  valueFilter = '';
 
   constructor(
     public userService: UserService,
@@ -19,6 +20,19 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.getUserList();
+  }
+
+  onKey(valueFilter: string) {
+    this.valueFilter += valueFilter + ' | ';
+
+    console.log(valueFilter.length > 0);
+    if (valueFilter.length > 0)
+    {
+      this.userList = this.userList.filter(u => u.name.toLowerCase().includes(valueFilter.toLowerCase()));
+    }
+    else{
+      this.getUserList();
+    }
   }
 
   getUserList(){
