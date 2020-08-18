@@ -1,0 +1,39 @@
+<div class="signup-form">
+
+  <form #updateForm="ngForm" (ngSubmit)="update()">
+          <div class="form-group">
+            <span>UserName</span>
+            <div class="input-group">
+              <input type="text" class="form-control" name="username" required="required" [(ngModel)]="userForUpdate.userName">
+            </div>
+          </div>
+          <div class="form-group">
+            <span>Nombre</span>
+            <div class="input-group">
+              <input type="text" class="form-control" name="name"  required="required" [(ngModel)]="userForUpdate.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <span>Apellido</span>
+            <div class="input-group">
+              <input type="text" class="form-control" name="lastName" required="required" [(ngModel)]="userForUpdate.lastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <span>Estado</span>
+            <div class="input-group">
+              <input type="text" class="form-control" name="state" required="required" [(ngModel)]="userForUpdate.state">
+            </div>
+          </div>
+          <div class="form-group">
+            <span>Login</span>
+            <div class="input-group">
+              <input type="text" class="form-control" name="login"  required="required" [(ngModel)]="userForUpdate.login">
+            </div>
+          </div>
+          <div class="form-group">
+              <button [disabled]="!updateForm.valid" type="submit" class="btn btn-primary btn-lg">Actualizar Usuario</button>
+          </div>
+  </form>
+
+</div>

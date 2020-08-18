@@ -1,0 +1,48 @@
+<div *ngIf="!loggedIn()" class="signup-form">
+  <!-- registro -->
+  <form *ngIf="wantsToRegister" #registerForm="ngForm" (ngSubmit)="register()">
+      <h2>Registro</h2>
+    <div class="text-center">¿Ya tienes una cuenta? <a (click)="toggleRegister()" style="cursor: pointer;">Inicie sesion  aqui</a></div>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" name="username" placeholder="Username" required="required" [(ngModel)]="userForRegister.userName">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" name="name" placeholder="Nombre" required="required" [(ngModel)]="userForRegister.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" name="lastName" placeholder="Apellido" required="required" [(ngModel)]="userForRegister.lastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" name="password" type="password" placeholder="Contraseña" required="required" [(ngModel)]="userForRegister.password">
+            </div>
+          </div>
+          <div class="form-group">
+              <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+          </div>
+  </form>
+  <!-- login -->
+  <form *ngIf="!wantsToRegister" #loginForm="ngForm" (ngSubmit)="login()">
+    <h2>Iniciar sesion</h2>
+    <div class="text-center">¿No tienes una cuenta? <a (click)="toggleRegister()" style="cursor: pointer;">Registrese  aqui</a></div>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="usernameLogin" placeholder="Username" required="required" [(ngModel)]="userForLogin.userName">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="passwordLogin" type="password" placeholder="Contraseña" required="required" [(ngModel)]="userForLogin.password">
+          </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesion</button>
+        </div>
+  </form>
+</div>
